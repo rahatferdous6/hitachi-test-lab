@@ -1,0 +1,5 @@
+def test_addition():
+    a = 2
+    b = 3
+
+    assert a + b == 5
