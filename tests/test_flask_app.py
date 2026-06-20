@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://172.17.0.2:5000"
+BASE_URL = "http://172.17.0.3:5000"
 
 
 def test_flask_homepage():
