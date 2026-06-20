@@ -1,4 +1,3 @@
-```python
 import requests
 
 BASE_URL = "http://172.17.0.2:5000"
@@ -36,4 +35,3 @@ def test_users():
     assert data[0]["name"] == "Alice"
 
     assert data[1]["name"] == "Bob"
-```
