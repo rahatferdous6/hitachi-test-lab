@@ -19,6 +19,15 @@ pipeline {
                 '''
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                docker build -t hitachi-flask .
+                '''
+            }
+        }
+
     }
 
     post {
