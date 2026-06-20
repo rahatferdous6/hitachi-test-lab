@@ -1,13 +1,14 @@
+```python
 import requests
+
+BASE_URL = "http://172.17.0.2:5000"
 
 
 def test_flask_homepage():
-
-    response = requests.get(
-        "http://127.0.0.1:5000",
-        timeout=5
-    )
+    response = requests.get(BASE_URL)
 
     assert response.status_code == 200
 
     assert "Hitachi Energy Test Lab is running!" in response.text
+```
+
