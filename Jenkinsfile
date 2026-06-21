@@ -28,6 +28,20 @@ pipeline {
             }
         }
 
+        stage('Deploy Container') {
+            steps {
+                sh '''
+                docker stop flask-container || true
+                docker rm flask-container || true
+
+                docker run -d \
+                --name flask-container \
+                -p 5000:5000 \
+                hitachi-flask
+                '''
+            }
+        }
+
     }
 
     post {
