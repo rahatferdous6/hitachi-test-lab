@@ -6,7 +6,7 @@ import pytest
     "host,port",
     [
         ("google.com", 443),
-        ("172.17.0.3", 5000),
+        ("flask-container", 5000),
     ]
 )
 def test_tcp_port(host, port):
