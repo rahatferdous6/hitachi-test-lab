@@ -1,3 +1,4 @@
+```groovy
 pipeline {
     agent any
 
@@ -14,8 +15,17 @@ pipeline {
                 sh '''
                 python3 -m venv venv
                 . venv/bin/activate
-                pip install pytest requests flask pytest-html
-                pytest -v --html=report.html --self-contained-html
+
+                pip install pytest requests flask pytest-html pytest-cov
+
+                pytest \
+                -v \
+                --html=report.html \
+                --self-contained-html \
+                --cov=src \
+                --cov-report=term \
+                --cov-report=html \
+                --cov-report=xml
                 '''
             }
         }
@@ -36,6 +46,7 @@ pipeline {
 
                 docker run -d \
                 --name flask-container \
+                --network hitachi-net \
                 -p 5000:5000 \
                 hitachi-flask
                 '''
@@ -57,3 +68,5 @@ pipeline {
         }
     }
 }
+```
+
